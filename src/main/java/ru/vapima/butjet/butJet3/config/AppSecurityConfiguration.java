@@ -60,7 +60,12 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll()
                 .logoutUrl("/app/logout")
-                .logoutSuccessUrl("/app/");
+                .logoutSuccessUrl("/app/")
+                .and()
+                .rememberMe()
+                .key("unique-and-secret")
+                .rememberMeCookieName("remember-me-cookie-name")
+                .tokenValiditySeconds(30 * 24 * 60 * 60).userDetailsService(personService);
 
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
     }

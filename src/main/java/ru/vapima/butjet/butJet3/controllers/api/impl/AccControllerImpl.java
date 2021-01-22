@@ -9,7 +9,9 @@ import ru.vapima.butjet.butJet3.dto.acc.AccDtoResponse;
 import ru.vapima.butjet.butJet3.dto.acc.AccDtoUpdate;
 import ru.vapima.butjet.butJet3.service.AccService;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequestMapping("/api/persons/{id_person}/accounts")
 @RestController
@@ -41,7 +43,7 @@ public class AccControllerImpl implements AccController {
     @Override
     @GetMapping
     public List<AccDtoResponse> list(@PathVariable("id_person") Long idPerson) {
-        return accService.getAll(idPerson);
+        return accService.getAll(idPerson).stream().sorted(Comparator.comparing(AccDtoResponse::getActive)).collect(Collectors.toList());
     }
 
     @Override

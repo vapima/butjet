@@ -12,6 +12,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @SpringBootApplication
 @EntityScan(basePackages = "ru.vapima.butjet.butJet3.model")
 @EnableJpaRepositories(basePackages = "ru.vapima.butjet.butJet3")

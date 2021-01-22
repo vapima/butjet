@@ -4,7 +4,7 @@ spring:
       filter:
         enabled: true
   datasource:
-    url: jdbc:mysql://localhost:8889/butjet3?serverTimezone=Europe/Moscow
+    url: jdbc:mysql://localhost:8889/butjet3?serverTimezone=Europe/Moscow&useUnicode=yes&characterEncoding=UTF-8
     username: butjet
     password: 12345678
     driver-class-name: com.mysql.jdbc.Driver
